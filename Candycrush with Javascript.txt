@@ -1,0 +1,58 @@
+Candycrush with Javascript
+
+HTML setup:
+1. <html lang="en" dir="ltr">
+--dir="ltr" specifies the dirention of the text in HTML document.
+--ltr sets the text direction from left to right.
+2.Place script tag in header in order to use addEventListeners to the DOM.
+-- <script src="./app.js" charset="utf-8"></script>
+--Setting the charset=utf-8 character encoding in the script file specifies encoding =utf-8
+3.Create div with the class of grid ,this will represent the canvas.
+--<div class="grid"></div>
+
+-----
+=======
+CSS setup:
+1.Edit grid to be displayed with 8x8 squares.
+-This could be done by *70px by 8 which will give the height and width of the grid 560px.
+2.Set the display to flex to cause squares to stack row by row while setting flex-wrap to wrap
+  so the grid breaks when the squares overflow set pixels.
+.grid{
+    height:560px;
+    width:560px;
+    display:flex;
+    flex-wrap:wrap;
+    background-color:blue;
+
+}
+-----
+1.Create another grid div for future use via javascript
+-The setting of 70px could be adjusted to a higher quantity for more squares to be added or to
+hold a larger number of squares before breaking or wrapping to the next row.
+.grid div {
+    height: 70px;
+    width:70px;
+}
+
+======================
+Javascript setup
+1. Add event listener to the dom to check if content has loaded.
+--Javascript code is placed inside this code block.
+--Note current script tag is placed in header to load script but the HTML will be read first due to DOMContentLoaded. 
+the addEventListener is set to the DOMContentLoaded.
+---------------------------
+document.addEventListener("DOMContentLoaded",() =>{
+const grid = document.querySelector('.grid');
+const width = 8;	//sets the square count to 8 .
+const squares =[];   //dynamic array that will hold the number of squares.
+ });
+2.Create board which uses a loop to add squares to grid in order to create board.
+-Use a for loop to multipling the width which is 8 by width which is 8,
+-By creating an element(div)in this case=>document.createElement('div');
+-next use appendChild to attack squares to grid.
+----------------------------------------
+for(let i =0; i<width*width; i++){
+        const square = document.createElement('div');
+        grid.appendChild(square);
+	squares.push(square); //push each individual square into squares array.
+=======
